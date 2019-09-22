@@ -9,10 +9,12 @@ var COLUMN_X = 150;
 var COLUMN_Y = 100;
 var COLUMN_HEIGHT = 150;
 var COLUMN_WIDTH = 40;
+
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
+
 var getMaxElement = function (arr) {
   var maxElement = arr[0];
 
@@ -34,23 +36,19 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillText('Список результатов:', CLOUD_X + GAP, CLOUD_Y + GAP);
 
   for (var i = 0; i < names.length; i++) {
-
     var color = 0;
     if (names[i] === 'Вы') {
       color = 'rgba(255, 0, 0, 1)';
     } else {
       color = 'hsl(240,' + Math.floor(Math.random() * 101) + '%,50%)';
     }
-
     var maxTime = getMaxElement(times);
-
     var x = COLUMN_X + i * (COLUMN_WIDTH + GAP);
     var width = COLUMN_WIDTH;
     var height = COLUMN_HEIGHT * Math.round(times[i]) / maxTime;
     var y = (COLUMN_Y + COLUMN_HEIGHT) - height;
     ctx.fillStyle = color;
     ctx.fillRect(x, y, width, height);
-
     ctx.fillStyle = '#000';
     ctx.fillText(Math.round(times[i]), x, y - 10);
     ctx.fillText(names[i], x, COLUMN_Y + COLUMN_HEIGHT + 20);
