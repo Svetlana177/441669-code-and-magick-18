@@ -54,3 +54,5 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillText(names[i], x, COLUMN_Y + COLUMN_HEIGHT + 20);
   }
 };
+
+//module4-task1
