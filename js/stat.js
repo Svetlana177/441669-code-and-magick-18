@@ -57,3 +57,4 @@ window.renderStatistics = function (ctx, names, times) {
 
 //module4-task1
 //module5-task1
+//module6-task1
